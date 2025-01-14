@@ -2,7 +2,7 @@ import React from 'react'
 import Kichen from '../../assets/kichen.jpg'
 import HomeDecor from '../../assets/Homedecor.jpg'
 import Furniture from '../../assets/Furniture.jpg'
-import HomeImprovement from '../../assets/Homeimprovement.jpg'
+import HomeImprovement from '../../assets/HomeImprovement.jpg'
 
 const Box1 = () => {
     return (
