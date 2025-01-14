@@ -14,7 +14,7 @@ import CarouselImage8 from '../../assets/CarouselImage-8.jpg';
 const Carousel = () => {
     return (
         <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-            <div className="carousel-inner">
+            <div className="carousel-inner px-2 h-[260px]">
                 <div className="carousel-item active">
                     <img className="d-block w-100" src={CarouselImage1} alt="First slide" />
                 </div>
