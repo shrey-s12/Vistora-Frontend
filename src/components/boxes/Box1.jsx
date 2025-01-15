@@ -1,33 +1,30 @@
 import React from 'react'
-import Kichen from '../../assets/kichen.jpg'
-import HomeDecor from '../../assets/Homedecor.jpg'
-import Furniture from '../../assets/Furniture.jpg'
-import HomeImprovement from '../../assets/HomeImprovement.jpg'
 
-const Box1 = () => {
+
+const Box1 = ({ title, img1, img2, img3, img4, img1Title, img2Title, img3Title, img4Title }) => {
     return (
         <div className="bg-white shadow-md p-3 w-full h-auto">
             <div className="mb-2">
-                <h1 className="text-xl font-bold text-gray-800">Minimum 50% off | Home, kitchen & more</h1>
+                <h1 className="text-xl font-bold text-gray-800">{title}</h1>
             </div>
             <div className="grid grid-cols-2 gap-4 mb-2">
                 <div className="flex flex-col">
-                    <img src={Kichen} alt='kichen' className="w-full h-24 object-cover" />
-                    <p className="text-xs text-gray-900">Kitchen Essentials</p>
+                    <img src={img1} alt='kichen' className="w-full h-24 object-cover" />
+                    <p className="text-xs text-gray-900">{img1Title}</p>
                 </div>
                 <div className="flex flex-col">
-                    <img src={HomeDecor} alt='home decor' className="w-full h-24 object-cover" />
-                    <p className="text-xs text-gray-900">Home Decor</p>
+                    <img src={img2} alt='home decor' className="w-full h-24 object-cover" />
+                    <p className="text-xs text-gray-900">{img2Title}</p>
                 </div>
             </div>
             <div className="grid grid-cols-2 gap-4 mb-2">
                 <div className="flex flex-col">
-                    <img src={Furniture} alt='furniture' className="w-full h-24 object-cover" />
-                    <p className="text-xs text-gray-900">Furniture</p>
+                    <img src={img3} alt='furniture' className="w-full h-24 object-cover" />
+                    <p className="text-xs text-gray-900">{img3Title}</p>
                 </div>
                 <div className="flex flex-col">
-                    <img src={HomeImprovement} alt='home improvement' className="w-full h-24 object-cover" />
-                    <p className="text-xs text-gray-900">Home Improvement</p>
+                    <img src={img4} alt='home improvement' className="w-full h-24 object-cover" />
+                    <p className="text-xs text-gray-900">{img4Title}</p>
                 </div>
             </div>
             <div>
