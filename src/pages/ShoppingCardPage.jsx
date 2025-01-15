@@ -1,5 +1,5 @@
 import React from 'react'
-import ShoppingCard from '../components/shoppingCart/shoppingCard'
+import ShoppingCard from '../components/shoppingCart/ShoppingCard'
 
 const ShoppingCardPage = () => {
   return (
