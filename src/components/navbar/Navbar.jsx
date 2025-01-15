@@ -3,6 +3,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { IoSearchSharp } from "react-icons/io5";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Logo = () => {
@@ -159,25 +160,25 @@ const Account = () => {
 const ReturnAndOrders = () => {
     return (
         <div className="hidden p-1 my-1 hover:outline hover:outline-1 hover:outline-white lg:block" >
-            <div className="flex flex-col items-start">
+            <button className="flex flex-col items-start">
                 <span className="text-xs text-white">Returns</span>
                 <span className="font-semibold">& Orders</span>
-            </div>
+            </button>
         </div>
     );
 };
 
 const Cart = () => {
     return (
-        <div className="flex items-center p-1 my-1 mr-4 hover:outline hover:outline-1 hover:outline-white" >
-            <div className="relative">
+        <Link to='/shopping-card' className="flex items-center p-1 my-1 mr-4 hover:outline hover:outline-1 hover:outline-white" >
+            <button className="relative">
                 <LiaShoppingCartSolid className="text-4xl" />
                 <div className="absolute -top-1 -right-1 bg-yellow-500 text-xs text-white font-bold rounded-full w-4 h-4 flex items-center justify-center">
                     0
                 </div>
-            </div>
+            </button>
             <span className="hidden font-bold md:inline">Cart</span>
-        </div>
+        </Link>
     );
 };
 
