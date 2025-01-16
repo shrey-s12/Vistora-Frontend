@@ -1,6 +1,4 @@
 import React from 'react';
-import { IoLocationOutline } from "react-icons/io5";
-import { IoSearchSharp } from "react-icons/io5";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -8,7 +6,9 @@ import { useState } from "react";
 
 const Logo = () => {
     return (
-        <button className="p-2 my-1 text-white font-bold text-2xl ml-5 hover:outline hover:outline-1 hover:outline-white">Vistora.in</button>
+        <Link to='/'>
+            <button className="p-2 my-1 text-white font-bold text-2xl ml-5 hover:outline hover:outline-1 hover:outline-white">Vistora.in</button>
+        </Link>
     );
 };
 

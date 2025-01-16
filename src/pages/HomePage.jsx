@@ -9,7 +9,6 @@ const HomePage = () => {
         <div className='bg-blue-200 text-white'>
             <Carousel />
             <Boxes />
-            {/* <Section /> */}
             <CardProducts />
         </div>
     )
