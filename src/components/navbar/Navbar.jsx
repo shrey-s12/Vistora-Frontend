@@ -127,16 +127,30 @@ const Language = () => {
 };
 
 const Account = () => {
+    // const [hover, setHover] = useState(false);
+    // onMouseEnter={(e) => setHover(true)} onMouseLeave={(e) => setHover(false)}
     return (
-        <div className="hidden lg:block">
-            <button className="flex flex-col p-1 my-1 items-start hover:outline hover:outline-1 hover:outline-white">
-                <span className="text-xs text-white">Hello, Shrey</span>
-                <span className="flex items-center font-bold">
-                    Account & Lists
-                    <IoMdArrowDropdown className="mt-2" />
-                </span>
-            </button>
-        </div>
+        <>
+            <Link to="/your-account" className='no-underline'>
+                <div className="hidden lg:block">
+                    <button className="flex flex-col p-1 my-1 items-start hover:outline hover:outline-1 hover:outline-white">
+                        <span className="text-xs text-white no-underline">Hello, Shrey</span>
+                        <span className="flex items-center font-bold text-white ">
+                            Account & Lists
+                            <IoMdArrowDropdown className="mt-2" />
+                        </span>
+                    </button>
+                </div>
+            </Link>
+
+            {/* {
+                hover &&
+                <div className='container bg-white'>
+                    <div></div>
+                    <div></div>
+                </div>
+            } */}
+        </>
     );
 };
 
