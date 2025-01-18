@@ -7,7 +7,7 @@ import { useState } from "react";
 const Logo = () => {
     return (
         <Link to='/'>
-            <button className="p-2 my-1 text-white font-bold text-2xl ml-5 hover:outline hover:outline-1 hover:outline-white">Vistora.in</button>
+            <button className="p-2 my-1 text-white font-bold text-3xl ml-5 hover:outline hover:outline-1 hover:outline-white">Vistora.in</button>
         </Link>
     );
 };
@@ -89,23 +89,6 @@ const SearchBar = () => {
                 </svg>
             </button>
         </div>
-
-        // <div className="flex items-center bg-white rounded-md overflow-hidden w-full max-w-3xl">
-        //     <select className="bg-gray-100 text-sm p-2 border-r">
-        //         <option value="all">All</option>
-        //         {all.map((category, index) => (
-        //             <option key={index}>{category}</option>
-        //         ))}
-        //     </select>
-        //     <input
-        //         type="text"
-        //         className="flex-grow p-2 outline-none text-sm"
-        //         placeholder="Search Vistora.in"
-        //     />
-        //     <button className="p-2 bg-yellow-500 text-white">
-        //         <IoSearchSharp />
-        //     </button>
-        // </div>
     );
 };
 
@@ -184,8 +167,8 @@ const Cart = () => {
 
 const Navbar = () => {
     return (
-        <nav className="flex w-full flex-col bg-[#131921] text-white">
-            <div className="flex flex-wrap items-center gap-2 md:gap-4">
+        <nav className="flex w-full flex-col bg-[#131921] py-1 text-white">
+            <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 <Logo />
                 <Address />
                 <SearchBar />
