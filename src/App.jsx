@@ -6,7 +6,6 @@ import { Route, Routes } from "react-router-dom"
 import ProfilePage from "./pages/ProfilePage"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
-import Logout from "./pages/Logout"
 import YourAccountPage from "./pages/YourAccountPage"
 
 function layout(element) {
@@ -33,7 +32,6 @@ function App() {
         <Route path="/your-account" element={layout(<YourAccountPage />)} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   )

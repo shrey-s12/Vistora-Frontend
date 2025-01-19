@@ -131,7 +131,7 @@ const Account = () => {
     // onMouseEnter={(e) => setHover(true)} onMouseLeave={(e) => setHover(false)}
     return (
         <>
-            <Link to="/your-account" className='no-underline'>
+            <Link to="/profile" className='no-underline'>
                 <div className="hidden lg:block">
                     <button className="flex flex-col p-1 my-1 items-start hover:outline hover:outline-1 hover:outline-white">
                         <span className="text-xs text-white no-underline">Hello, Shrey</span>
