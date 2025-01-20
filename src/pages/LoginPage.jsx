@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setCurrentUser } from '../slices/authSlice';
 
 const LoginPage = () => {
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
@@ -14,25 +13,22 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5001/auth/login', { email, password }, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        axios.post('http://localhost:5001/auth/login', { email, password })
             .then(response => {
-                const { token, refresh_token } = response.data;
+                const { token, refresh_token } = response?.data;
+                dispatch(setCurrentUser({ email }));
                 localStorage.setItem('token', token);
-                dispatch(setCurrentUser({ token, refresh_token, email }));
+                localStorage.setItem('refresh_token', refresh_token);
                 navigate('/profile');
-                console.log(response.data);
+                console.log(response);
             }).catch(err => {
                 setError(err.response.data.message);
             });
     }
 
     return (
-        <div>
-            <div>
+        <div className='p-4 flex flex-col gap-4'>
+            <div className='border-b-2 border-gray-200 pb-3'>
                 <div className='flex justify-center'>
                     <h1>Vistora.in</h1>
                 </div>
@@ -74,11 +70,11 @@ const LoginPage = () => {
                                 <Link to="/register">Click</Link>
                             </div>
                             <div className='border-b-2 border-gray-200 pb-3 my-3'>
-                                <span>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</span>
+                                <span>By continuing, you agree to Vistora's Conditions of Use and Privacy Notice.</span>
                             </div>
                             <div className='flex flex-col'>
                                 <span>Buying for work?</span>
-                                <span>Shop on Amazon Business</span>
+                                <span>Shop on Vistora Business</span>
                             </div>
                         </div>
                     </div>

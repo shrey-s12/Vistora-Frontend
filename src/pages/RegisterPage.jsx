@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
 
 const RegisterPage = () => {
-
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -29,8 +26,8 @@ const RegisterPage = () => {
       })
   }
   return (
-    <div>
-      <div>
+    <div className='p-4 flex flex-col gap-4'>
+      <div className='border-b-2 border-gray-200 pb-3'>
         <div className='flex justify-center'>
           <h1>Vistora.in</h1>
         </div>
