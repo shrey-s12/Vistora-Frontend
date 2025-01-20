@@ -26,47 +26,55 @@ export const profile_view = [
         img: OrderBox,
         title: "Your Orders",
         description: "Track, return, or buy things again",
+        url: "#"
     },
     {
         id: crypto.randomUUID(),
         img: Lock,
         title: "Login & Security",
         description: "Edit login, name, and mobile number",
+        url: "#"
     },
     {
         id: crypto.randomUUID(),
         img: PrimeBox,
         title: "Prime",
         description: "View benefits and payment settings",
+        url: "#"
     },
     {
         id: crypto.randomUUID(),
         img: Location,
         title: "Your Addresses",
         description: "Edit addresses for orders and gifts",
+        url: "#"
     },
     {
         id: crypto.randomUUID(),
         img: AmazonBusiness,
         title: "Your business account",
         description: "Sign up for free to save up to 28% with GST invoice and bulk discounts and purchase on credit.",
+        url: "#"
     },
     {
         id: crypto.randomUUID(),
         img: PaymentOption,
         title: "Payment options",
         description: "Edit or add payment methods",
+        url: "#"
     },
     {
         id: crypto.randomUUID(),
         img: AmazonPayBalance,
         title: "Vistora Pay balance",
         description: "Add money to your balance",
+        url: "#"
     },
     {
         id: crypto.randomUUID(),
         img: ContactUs,
         title: "Contact Us",
         description: "Contact our customer service via phone or chat",
+        url: "#"
     }
 ];
