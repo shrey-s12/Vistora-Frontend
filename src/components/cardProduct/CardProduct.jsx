@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, changeQuantity } from '../../slices/cartSlice';
 
 const CardProduct = ({ product }) => {
     const {
@@ -11,14 +13,27 @@ const CardProduct = ({ product }) => {
         discountedPrice,
         discountPercentage,
         deliveryDate,
-        bought,
-        options = 1,
     } = product;
     const formatPrice = (price) => {
         return new Intl.NumberFormat("en-IN", {
             maximumFractionDigits: 0,
         }).format(price);
     };
+
+    const id = product.id;
+    const quantity = useSelector(state => state.cart.items.find(ele => ele.id === id)?.quantity);
+    const dispatch = useDispatch();
+    const handleAddToCart = () => {
+        dispatch(addItem(product));
+    };
+
+    const handleDecrement = () => {
+        dispatch(changeQuantity({ id, increament: -1 }));
+    };
+    const handleIncrement = () => {
+        dispatch(changeQuantity({ id, increament: 1 }));
+    };
+
     return (
         <div className="border border-gray-200 rounded-lg flex flex-col gap-3 bg-white hover:shadow-md transition-shadow">
             <div className="pb-2 border-b border-gray-500">
@@ -51,13 +66,6 @@ const CardProduct = ({ product }) => {
                         {reviews.toLocaleString()}
                     </span>
                 </div>
-
-                {/* {bought && (
-                    <div className="text-xs text-gray-600">
-                        {bought} bought in past month
-                    </div>
-                )} */}
-
                 <div>
                     <div className="flex items-baseline gap-2">
                         <span className="text-sm text-[#CC0C39]">
@@ -79,18 +87,32 @@ const CardProduct = ({ product }) => {
                     <div className="text-gray-600">FREE Delivery by Amazon</div>
                 </div>
 
-                <button
-                    className={`w-full py-2 px-3 text-sm rounded-full my-4 text-black
-              ${options > 1
-                            ? "border border-gray-300 bg-white hover:bg-gray-50"
-                            : "bg-[#FFD814] hover:bg-[#F7CA00] border-0"
-                        } 
-              shadow-sm cursor-pointer transition-colors`}
-                >
-                    {options > 1 ? "Buying options" : "Add to Cart"}
-                </button>
+                {
+                    quantity
+                        ? (<div className='flex justify-center py-2 px-3 my-4'>
+                            <button
+                                className="px-2 py-1 bg-gray-200 hover:bg-gray-300 text-black"
+                                onClick={handleDecrement}
+                            >
+                                -
+                            </button>
+                            <span className="px-4 text-black">{quantity}</span>
+                            <button
+                                className="px-2 py-1 bg-gray-200 hover:bg-gray-300 text-black"
+                                onClick={handleIncrement}
+                            >
+                                +
+                            </button>
+                        </div>)
+                        : (<button
+                            onClick={handleAddToCart}
+                            className={`w-full py-2 px-3 text-sm rounded-full my-4 text-black bg-[#FFD814] hover:bg-[#F7CA00] border-0 shadow-sm cursor-pointer transition-colors`}
+                        >
+                            Add to Cart
+                        </button>)
+                }
             </div>
-        </div>
+        </div >
     )
 }
 
