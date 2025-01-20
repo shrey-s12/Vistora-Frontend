@@ -3,6 +3,7 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from 'react-redux';
 
 const Logo = () => {
     return (
@@ -166,12 +167,13 @@ const ReturnAndOrders = () => {
 };
 
 const Cart = () => {
+    const cartCount = useSelector(state => state.cart.items.length);
     return (
         <Link to='/shopping-card' className="flex items-center p-1 my-1 mr-4 hover:outline hover:outline-1 hover:outline-white" >
             <button className="relative">
                 <LiaShoppingCartSolid className="text-4xl" />
                 <div className="absolute -top-1 -right-1 bg-yellow-500 text-xs text-white font-bold rounded-full w-4 h-4 flex items-center justify-center">
-                    0
+                    {cartCount}
                 </div>
             </button>
             <span className="hidden font-bold md:inline">Cart</span>
