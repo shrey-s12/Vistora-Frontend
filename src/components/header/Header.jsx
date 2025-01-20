@@ -1,43 +1,42 @@
 import React from 'react'
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { IoMdArrowDropdown } from "react-icons/io";
-import HeaderImage from '../../assets/header-image.jpg'
-
-const Products = [
-    "Fresh", "MX Player", "Sell", "Vistora Pay", "Gift Cards", "Buy Again", "VistoraBasics", "Gift Ideas", "Today's Deals", "Customer Service",
-];
+import HeaderImage from "../../assets/header-image.jpg";
+import { headerProducts } from "../../data";
 
 const Product = () => {
     return (
-        <div className='flex'>
-            <div className='flex ml-2 p-2 hover:border hover:border-white'>
+        <div className='flex items-center w-[80%]'>
+            <div className='flex ml-4 p-2 hover:outline hover:outline-1 hover:outline-white'>
                 <HiOutlineBars3 className='text-2xl' />
-                <p>All</p>
+                <span>All</span>
             </div>
 
-            {Products.map((product, index) => (
-                <p key={index} className='p-2 hover:border hover:border-white'>{product}</p>
+            {headerProducts.map((product, index) => (
+                <span key={index} className='p-2 hover:outline hover:outline-1 hover:outline-white'>{product.name}</span>
             ))}
 
-            <div className='flex ml-2 p-2 hover:border hover:border-white'>
-                <p>Browsing History</p>
+            <div className='flex p-2 hover:outline hover:outline-1 hover:outline-white'>
+                <span>Browsing History</span>
                 <IoMdArrowDropdown className='text-2xl' />
             </div>
+
+
         </div>
     )
 }
 
 const Image = () => {
     return (
-        <div className='flex items-center'>
-            <img src={HeaderImage} alt='header' className='w-48' />
+        <div className='w-[20%]'>
+            <img src={HeaderImage} alt='header' />
         </div>
     )
 }
 
 const Header = () => {
     return (
-        <div className='flex items-center bg-gray-700 text-white'>
+        <div className='flex items-center bg-gray-800 text-white'>
             <Product />
             <Image />
         </div>
