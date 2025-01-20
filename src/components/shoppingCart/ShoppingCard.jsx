@@ -1,11 +1,10 @@
 import React from "react";
-import { products } from "../../data";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleItem, changeQuantity } from "../../slices/cartSlice";
 
 function CartItem({ product }) {
   const dispatch = useDispatch();
-  const id = product.id;
+  const id = product._id;
 
   const handleToggle = () => {
     dispatch(toggleItem(id));
@@ -17,30 +16,30 @@ function CartItem({ product }) {
     dispatch(changeQuantity({ id, increament: 1 }));
   };
   return <>
-    <div key={product.id} className="flex items-start border-b pb-4 mb-4">
+    <div key={product._id} className="flex items-start border-b pb-4 mb-4">
       {/* Image */}
       <div className="justify-center items-center flex gap-2">
         <input type="checkbox" className="items-center" checked={product.selected} onChange={handleToggle} />
         <img
-          src={product.image}
-          alt={product.title}
+          src={product.product_image}
+          alt={product.product_brand}
           className="w-48 h-48 object-contain"
         />
       </div>
 
       {/* Details */}
       <div className="ml-4 flex-1">
-        <h3 className="text-sm font-semibold">{product.title}</h3>
+        <h3 className="text-sm font-semibold">{product.product_title}</h3>
         <p className="text-green-600 text-sm">In stock</p>
         <p className="text-gray-500 text-sm">Eligible for FREE Shipping</p>
         <p className="text-sm">
-          <strong>Colour:</strong> {product.color}
+          <strong>Colour:</strong> {product.product_color}
         </p>
         <p className="text-sm">
-          <strong>Size:</strong> {product.size}
+          <strong>Size:</strong> {product.product_size}
         </p>
         <p className="text-sm">
-          <strong>Style Name:</strong> {product.style}
+          <strong>Style Name:</strong> {product.product_size}
         </p>
 
         {/* Actions */}
@@ -78,7 +77,7 @@ function CartItem({ product }) {
       {/* Price */}
       <div className="text-right">
         <p className="text-lg font-semibold">
-          ₹{(product.price * product.quantity).toLocaleString()}
+          ₹{(product.product_price * product.quantity).toLocaleString()}
         </p>
       </div>
     </div>
@@ -95,18 +94,18 @@ const ShoppingCart = () => {
       </div>
 
       {cartItems.map((product) => (
-        <CartItem key={product.id} product={product} />
+        <CartItem key={product._id} product={product} />
       ))}
 
       {/* Subtotal */}
       <div className="flex justify-between items-center mt-4">
         <p className="text-lg font-semibold">
           Subtotal ({cartItems.reduce((count, product) => count + product.quantity, 0)}{" "}
-          item{products.length > 1 ? "s" : ""});
+          item{cartItems.length > 1 ? "s" : ""});
         </p>
         <p className="text-lg font-semibold">
           {/* ₹{calculateSubtotal().toLocaleString()} */}
-          ₹{cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toLocaleString()}
+          ₹{cartItems.reduce((total, product) => total + product.product_price * product.quantity, 0).toLocaleString()}
         </p>
       </div>
     </div>
