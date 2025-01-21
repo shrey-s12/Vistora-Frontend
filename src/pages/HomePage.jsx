@@ -2,6 +2,7 @@ import React from 'react'
 import Carousel from '../components/carousel/Carousel'
 import Boxes from '../components/boxes/Boxes'
 import CardProducts from '../components/cardProduct/CardProducts'
+import Footer from '../components/footer/Footer'
 
 const HomePage = () => {
     return (
@@ -11,6 +12,7 @@ const HomePage = () => {
                 <Boxes />
             </div>
             <CardProducts />
+            <Footer />
         </div>
     )
 }
