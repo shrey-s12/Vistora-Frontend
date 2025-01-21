@@ -25,9 +25,10 @@ export function useRetryCall(method) {
                 throw err;
             }
             const refresh_Token = localStorage.getItem('refresh_token');
-            const response = await axios.post('http://localhost:5001/api/token', { token: refresh_Token });
+            const response = await axios.post('http://localhost:5001/auth/token', { token: refresh_Token });
             const { token: newToken } = response.data;
             localStorage.setItem('token', newToken);
+            console.log("newToken", newToken);
             return await axios.request(axiosAuthConfig(method, newToken, url, body));
         } finally {
             setLoading(false);

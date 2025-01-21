@@ -7,6 +7,10 @@ import ProfilePage from "./pages/ProfilePage"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import YourAccountPage from "./pages/YourAccountPage"
+import { useRetryCall } from "./hooks"
+import { useEffect } from "react"
+import { setCurrentUser } from "./slices/authSlice"
+import { useDispatch } from "react-redux"
 
 function layout(element) {
   return <>
@@ -23,6 +27,15 @@ function layout(element) {
 }
 
 function App() {
+  const dispatch = useDispatch();
+  const [loading, userFetch] = useRetryCall('get');
+
+  useEffect(() => {
+    userFetch('http://localhost:5000/user/userInfo')
+      .then(response => {
+        dispatch(setCurrentUser({ email: response.data.user.username }));
+      }).catch(err => console.error(err));
+  }, []);
 
   return (
     <div>
