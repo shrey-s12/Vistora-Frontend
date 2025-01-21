@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5001/auth/login', { email, password })
+        axios.post('https://vistora-backend-auth.onrender.com/auth/login', { email, password })
             .then(response => {
                 const { token, refresh_token } = response?.data;
                 dispatch(setCurrentUser({ email }));

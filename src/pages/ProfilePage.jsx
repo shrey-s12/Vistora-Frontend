@@ -16,7 +16,7 @@ const ProfilePage = () => {
         const refresh_token = localStorage.getItem('refresh_token');
         localStorage.removeItem('token');
         localStorage.removeItem('refresh_token');
-        axios.post('http://localhost:5001/auth/logout', { token: refresh_token })
+        axios.post('https://vistora-backend-auth.onrender.com/auth/logout', { token: refresh_token })
             .then(response => {
                 navigate('/login');
             })

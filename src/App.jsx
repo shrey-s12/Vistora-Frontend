@@ -31,7 +31,7 @@ function App() {
   const [loading, userFetch] = useRetryCall('get');
 
   useEffect(() => {
-    userFetch('http://localhost:5000/user/userInfo')
+    userFetch('https://vistora-backend.onrender.com/user/userInfo')
       .then(response => {
         dispatch(setCurrentUser({ email: response.data.user.username }));
       }).catch(err => console.error(err));

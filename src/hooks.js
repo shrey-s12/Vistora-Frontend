@@ -25,7 +25,7 @@ export function useRetryCall(method) {
                 throw err;
             }
             const refresh_Token = localStorage.getItem('refresh_token');
-            const response = await axios.post('http://localhost:5001/auth/token', { token: refresh_Token });
+            const response = await axios.post('https://vistora-backend-auth.onrender.com/auth/token', { token: refresh_Token });
             const { token: newToken } = response.data;
             localStorage.setItem('token', newToken);
             console.log("newToken", newToken);
@@ -55,7 +55,7 @@ export function useRetryCall(method) {
 //                 console.error(err);
 //             } else {
 //                 const refreshToken = localStorage.getItem('refreshToken');
-//                 axios.post('http://localhost:5001/token', { token: refreshToken })
+//                 axios.post('https://vistora-backend-auth.onrender.com/token', { token: refreshToken })
 //                     .then(response => {
 //                         const { token: newToken } = response.data;
 //                         localStorage.setItem('token', newToken);

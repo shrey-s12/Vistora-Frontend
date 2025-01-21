@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api";
-const API_AUTH_URL = "http://localhost:5001/api";
+const API_BASE_URL = "https://vistora-backend.onrender.com/api";
+const API_AUTH_URL = "https://vistora-backend-auth.onrender.com/auth";
 
 export const fetchProducts = async () => {
     try {

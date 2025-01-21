@@ -12,7 +12,7 @@ const RegisterPage = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5001/auth/register', { username, email, password }, {
+    axios.post('https://vistora-backend-auth.onrender.com/auth/register', { username, email, password }, {
       headers: {
         'Content-Type': 'application/json'
       }
