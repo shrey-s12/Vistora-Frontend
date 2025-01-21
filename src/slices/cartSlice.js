@@ -8,6 +8,9 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
+        setCartItems: (state, action) => {
+            state.items = action.payload;
+        },
         addItem: (state, action) => {
             const item = action.payload;
             console.log("item", item);
@@ -44,6 +47,6 @@ export const cartSlice = createSlice({
     }
 });
 
-export const { addItem, removeItem, toggleItem, changeQuantity } = cartSlice.actions;
+export const {setCartItems, addItem, removeItem, toggleItem, changeQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;
