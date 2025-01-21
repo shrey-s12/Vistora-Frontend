@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profile_view } from "../data";
-import { removeCurrentUser } from "../slices/authSlice";
+import { removeCurrentUser, setCurrentUser } from "../slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,6 +10,21 @@ const ProfilePage = () => {
     const navigate = useNavigate();
     const username = useSelector((state) => state.auth.currentUser);
     console.log("username", username);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        axios.get('http://localhost:5000/user/userInfo', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                console.log(response.data)
+                dispatch(setCurrentUser({ email: response.data.user.username }));
+            })
+            .catch(err => console.error(err));
+    }, [username]);
+
 
     const handleLogOut = () => {
         dispatch(removeCurrentUser());

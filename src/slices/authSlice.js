@@ -10,7 +10,6 @@ export const authSlice = createSlice({
     reducers: {
         setCurrentUser: (state, action) => {
             const { email } = action.payload;
-            console.log("email", email);
             state.currentUser = email;
         },
         removeCurrentUser: (state) => {
