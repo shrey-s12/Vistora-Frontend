@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profile_view } from "../data";
-import { removeItem } from "../slices/cartSlice";
+import { removeCurrentUser } from "../slices/authSlice";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
@@ -11,9 +12,17 @@ const ProfilePage = () => {
     console.log("username", username);
 
     const handleLogOut = () => {
-        dispatch(removeItem());
-        navigate("/login");
-    }
+        dispatch(removeCurrentUser());
+        const refresh_token = localStorage.getItem('refresh_token');
+        localStorage.removeItem('token');
+        localStorage.removeItem('refresh_token');
+        axios.post('http://localhost:5001/auth/logout', { token: refresh_token })
+            .then(response => {
+                navigate('/login');
+            })
+            .catch(err => console.error(err))
+    };
+
     return (
         <div className="flex flex-col items-center min-h-screen">
             {/* Main Container */}
