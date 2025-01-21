@@ -14,7 +14,7 @@ import CarouselImage8 from '../../assets/CarouselImage-8.jpg';
 const Carousel = () => {
     return (
         <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-            <div className="carousel-inner px-2 h-[270px]">
+            <div className="carousel-inner px-2">
                 <div className="carousel-item active">
                     <img className="d-block w-100" src={CarouselImage1} alt="First slide" />
                 </div>
@@ -40,12 +40,12 @@ const Carousel = () => {
                     <img className="d-block w-100" src={CarouselImage8} alt="Eighth slide" />
                 </div>
             </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <HiOutlineChevronLeft className="carousel-control-prev-icon" aria-hidden="true" />
+            <button className="carousel-control-prev ml-2" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <HiOutlineChevronLeft className="carousel-control-prev-icon top-1/4 absolute" aria-hidden="true" />
                 <span className="visually-hidden">Previous</span>
             </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <HiOutlineChevronRight className="carousel-control-next-icon" aria-hidden="true" />
+            <button className="carousel-control-next mr-2" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <HiOutlineChevronRight className="carousel-control-next-icon top-1/4 absolute" aria-hidden="true" />
                 <span className="visually-hidden">Next</span>
             </button>
         </div>

@@ -1,14 +1,15 @@
 import React from 'react';
-import { IoLocationOutline } from "react-icons/io5";
-import { IoSearchSharp } from "react-icons/io5";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from 'react-redux';
 
 const Logo = () => {
     return (
-        <button className="p-2 my-1 text-white font-bold text-2xl ml-5 hover:outline hover:outline-1 hover:outline-white">Vistora.in</button>
+        <Link to='/'>
+            <button className="p-2 my-1 text-white font-bold text-3xl ml-5 hover:outline hover:outline-1 hover:outline-white">Vistora.in</button>
+        </Link>
     );
 };
 
@@ -89,23 +90,6 @@ const SearchBar = () => {
                 </svg>
             </button>
         </div>
-
-        // <div className="flex items-center bg-white rounded-md overflow-hidden w-full max-w-3xl">
-        //     <select className="bg-gray-100 text-sm p-2 border-r">
-        //         <option value="all">All</option>
-        //         {all.map((category, index) => (
-        //             <option key={index}>{category}</option>
-        //         ))}
-        //     </select>
-        //     <input
-        //         type="text"
-        //         className="flex-grow p-2 outline-none text-sm"
-        //         placeholder="Search Vistora.in"
-        //     />
-        //     <button className="p-2 bg-yellow-500 text-white">
-        //         <IoSearchSharp />
-        //     </button>
-        // </div>
     );
 };
 
@@ -144,16 +128,30 @@ const Language = () => {
 };
 
 const Account = () => {
+    // const [hover, setHover] = useState(false);
+    // onMouseEnter={(e) => setHover(true)} onMouseLeave={(e) => setHover(false)}
     return (
-        <div className="hidden lg:block">
-            <button className="flex flex-col p-1 my-1 items-start hover:outline hover:outline-1 hover:outline-white">
-                <span className="text-xs text-white">Hello, Shrey</span>
-                <span className="flex items-center font-bold">
-                    Account & Lists
-                    <IoMdArrowDropdown className="mt-2" />
-                </span>
-            </button>
-        </div>
+        <>
+            <Link to="/profile" className='no-underline'>
+                <div className="hidden lg:block">
+                    <button className="flex flex-col p-1 my-1 items-start hover:outline hover:outline-1 hover:outline-white">
+                        <span className="text-xs text-white no-underline">Hello, Shrey</span>
+                        <span className="flex items-center font-bold text-white ">
+                            Account & Lists
+                            <IoMdArrowDropdown className="mt-2" />
+                        </span>
+                    </button>
+                </div>
+            </Link>
+
+            {/* {
+                hover &&
+                <div className='container bg-white'>
+                    <div></div>
+                    <div></div>
+                </div>
+            } */}
+        </>
     );
 };
 
@@ -169,23 +167,24 @@ const ReturnAndOrders = () => {
 };
 
 const Cart = () => {
+    const cartCount = useSelector(state => state.cart.items.length);
     return (
-        <Link to='/shopping-card' className="flex items-center p-1 my-1 mr-4 hover:outline hover:outline-1 hover:outline-white" >
+        <Link to='/shopping-card' className="flex items-center p-1 my-1 mr-4 no-underline hover:outline hover:outline-1 hover:outline-white" >
             <button className="relative">
-                <LiaShoppingCartSolid className="text-4xl" />
+                <LiaShoppingCartSolid className="text-4xl text-white" />
                 <div className="absolute -top-1 -right-1 bg-yellow-500 text-xs text-white font-bold rounded-full w-4 h-4 flex items-center justify-center">
-                    0
+                    {cartCount}
                 </div>
             </button>
-            <span className="hidden font-bold md:inline">Cart</span>
+            <span className="hidden font-bold md:inline text-white">Cart</span>
         </Link>
     );
 };
 
 const Navbar = () => {
     return (
-        <nav className="flex w-full flex-col bg-[#131921] text-white">
-            <div className="flex flex-wrap items-center gap-2 md:gap-4">
+        <nav className="flex w-full flex-col bg-[#131921] py-1 text-white">
+            <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 <Logo />
                 <Address />
                 <SearchBar />
