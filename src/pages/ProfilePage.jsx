@@ -30,12 +30,19 @@ const ProfilePage = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <h1 className="text-3xl text-gray-800 mb-3">Your Account : {username}</h1>
-                    <button
-                        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md text-2xl p-1 bg-white mb-3"
-                        onClick={handleLogOut}
-                    >
-                        Logout
-                    </button>
+                    {username
+                        ? <button
+                            className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md text-2xl p-1 bg-white mb-3"
+                            onClick={handleLogOut}
+                        >
+                            Logout
+                        </button>
+                        : <button
+                            className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md text-2xl p-1 bg-white mb-3"
+                            onClick={handleLogOut}
+                        >
+                            Login
+                        </button>}
                 </div>
 
                 {/* Grid of Cards */}
